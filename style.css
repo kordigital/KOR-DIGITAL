@@ -1,0 +1,1054 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #f5f5f5;
+    font-family: "Manrope", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+.cursor,
+.cursor-ring {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.cursor {
+    width: 7px;
+    height: 7px;
+    background: #fff;
+}
+
+.cursor-ring {
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(255,255,255,.45);
+    transition:
+        width .25s ease,
+        height .25s ease,
+        background .25s ease;
+}
+
+.cursor-ring.active {
+    width: 65px;
+    height: 65px;
+    background: rgba(255,255,255,.08);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 28px 4vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+
+    font-weight: 800;
+    letter-spacing: -2px;
+    font-size: 27px;
+}
+
+.logo small {
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #777;
+}
+
+.nav {
+    display: flex;
+    gap: 35px;
+}
+
+.nav a {
+    color: #888;
+    font-size: 12px;
+    transition: color .3s ease;
+}
+
+.nav a:hover {
+    color: #fff;
+}
+
+.header-button {
+    padding: 12px 19px;
+    border: 1px solid #333;
+    border-radius: 100px;
+
+    font-size: 11px;
+    transition: .3s ease;
+}
+
+.header-button:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(255,255,255,.08),
+            transparent 27%
+        ),
+        #050505;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.9),
+            transparent 65%
+        );
+
+    pointer-events: none;
+}
+
+.hero-noise {
+    position: absolute;
+    inset: 0;
+    opacity: .035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+
+    margin-left: 8vw;
+    width: 55%;
+}
+
+.hero-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #888;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.hero-label span {
+    width: 28px;
+    height: 1px;
+    background: #777;
+}
+
+.hero-title {
+    font-size: clamp(55px, 7vw, 115px);
+    line-height: .92;
+    letter-spacing: -6px;
+    font-weight: 700;
+}
+
+.hero-title .line {
+    display: block;
+}
+
+.hero-title .silver {
+    color: #777;
+}
+
+.hero-description {
+    margin-top: 35px;
+
+    max-width: 390px;
+
+    color: #888;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.hero-button,
+.cta-button {
+    margin-top: 35px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 40px;
+
+    padding: 17px 21px;
+
+    border: 1px solid #333;
+    background: #0b0b0b;
+
+    font-size: 12px;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        border .35s ease,
+        transform .35s ease;
+}
+
+.hero-button b,
+.cta-button b {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.hero-button:hover,
+.cta-button:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   MONITOR
+========================================================= */
+
+.device-scene {
+    position: absolute;
+
+    right: -4vw;
+    top: 50%;
+
+    width: 57vw;
+    max-width: 900px;
+
+    transform:
+        translateY(-50%)
+        perspective(1200px)
+        rotateY(-14deg)
+        rotateX(3deg);
+
+    z-index: 2;
+}
+
+.device-glow {
+    position: absolute;
+
+    width: 65%;
+    height: 65%;
+
+    left: 20%;
+    top: 15%;
+
+    background: #aaa;
+
+    filter: blur(130px);
+    opacity: .12;
+}
+
+.monitor {
+    position: relative;
+}
+
+.monitor-frame {
+    position: relative;
+
+    aspect-ratio: 16 / 10;
+
+    border: 1px solid #333;
+    border-radius: 13px;
+
+    background:
+        radial-gradient(
+            circle at 75% 30%,
+            #333,
+            transparent 20%
+        ),
+        linear-gradient(
+            145deg,
+            #171717,
+            #060606
+        );
+
+    box-shadow:
+        0 50px 100px rgba(0,0,0,.8),
+        inset 0 0 0 2px #111,
+        0 0 80px rgba(255,255,255,.04);
+
+    overflow: hidden;
+}
+
+.monitor-frame::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 35%,
+            rgba(255,255,255,.06) 50%,
+            transparent 65%
+        );
+
+    animation: shine 7s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    35% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.monitor-top,
+.monitor-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 25px 30px;
+
+    color: #777;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.mini-logo {
+    color: #eee;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.mini-nav {
+    display: flex;
+    gap: 7px;
+}
+
+.mini-nav span {
+    width: 25px;
+    height: 2px;
+    background: #444;
+}
+
+.monitor-main {
+    height: calc(100% - 110px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 30px 8%;
+}
+
+.monitor-copy {
+    position: relative;
+    z-index: 2;
+}
+
+.monitor-copy small {
+    color: #777;
+    font-size: 7px;
+    letter-spacing: 3px;
+}
+
+.monitor-copy strong {
+    display: block;
+
+    margin-top: 17px;
+
+    font-size: clamp(25px, 4vw, 62px);
+    line-height: .9;
+    letter-spacing: -3px;
+}
+
+.monitor-line {
+    width: 80px;
+    height: 1px;
+
+    margin-top: 25px;
+
+    background: #777;
+}
+
+.monitor-orb {
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #eee,
+            #777 12%,
+            #222 45%,
+            #050505 70%
+        );
+
+    box-shadow:
+        0 0 100px rgba(255,255,255,.1);
+
+    animation: orbFloat 5s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(8deg);
+    }
+}
+
+.monitor-bottom {
+    border-top: 1px solid #1d1d1d;
+}
+
+.monitor-stand {
+    width: 18%;
+    height: 60px;
+
+    margin: 0 auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            #111,
+            #555,
+            #111
+        );
+}
+
+.monitor-base {
+    width: 35%;
+    height: 8px;
+
+    margin: -1px auto 0;
+
+    border-radius: 100%;
+
+    background: #222;
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+.scroll-indicator {
+    position: absolute;
+
+    left: 4vw;
+    bottom: 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    color: #555;
+    font-size: 8px;
+    letter-spacing: 3px;
+
+    z-index: 5;
+}
+
+.scroll-indicator i {
+    display: block;
+
+    width: 50px;
+    height: 1px;
+
+    background: #555;
+
+    position: relative;
+}
+
+.scroll-indicator i::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: -2px;
+
+    width: 15px;
+    height: 5px;
+
+    background: #fff;
+
+    animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(35px);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.manifesto,
+.services,
+.process {
+    position: relative;
+
+    padding: 180px 8vw;
+}
+
+.section-number {
+    position: absolute;
+
+    top: 80px;
+    left: 4vw;
+
+    color: #333;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.eyebrow {
+    color: #666;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   MANIFESTO
+========================================================= */
+
+.manifesto {
+    min-height: 85vh;
+
+    display: flex;
+    align-items: center;
+
+    background: #070707;
+}
+
+.manifesto-content {
+    max-width: 950px;
+}
+
+.manifesto h2 {
+    font-size: clamp(45px, 6vw, 90px);
+    line-height: .98;
+    letter-spacing: -5px;
+}
+
+.manifesto h2 span {
+    color: #555;
+}
+
+.manifesto-text {
+    max-width: 550px;
+
+    margin-top: 50px;
+
+    color: #777;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services {
+    background: #050505;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-bottom: 90px;
+}
+
+.section-header h2 {
+    font-size: clamp(55px, 7vw, 105px);
+    line-height: .85;
+    letter-spacing: -6px;
+}
+
+.section-header h2 span {
+    color: #555;
+}
+
+.section-description {
+    max-width: 300px;
+
+    color: #666;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    border-top: 1px solid #222;
+    border-left: 1px solid #222;
+}
+
+.service-card {
+    min-height: 380px;
+
+    padding: 35px;
+
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #222;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition:
+        background .4s ease,
+        transform .4s ease;
+}
+
+.service-card:hover {
+    background: #0d0d0d;
+    transform: scale(.99);
+}
+
+.service-top {
+    display: flex;
+    justify-content: space-between;
+
+    color: #555;
+    font-size: 11px;
+}
+
+.service-card h3 {
+    font-size: clamp(30px, 4vw, 55px);
+    line-height: .95;
+    letter-spacing: -3px;
+}
+
+.service-card p {
+    max-width: 350px;
+
+    margin-top: 25px;
+
+    color: #666;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process {
+    background: #080808;
+}
+
+.process-header {
+    margin-bottom: 100px;
+}
+
+.process-line {
+    width: 100%;
+    height: 1px;
+
+    background: #2a2a2a;
+
+    margin-bottom: 60px;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+}
+
+.process-item span {
+    color: #777;
+    font-size: 10px;
+}
+
+.process-item h3 {
+    margin-top: 60px;
+
+    font-size: 22px;
+    letter-spacing: -1px;
+}
+
+.process-item p {
+    margin-top: 18px;
+
+    max-width: 210px;
+
+    color: #666;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.final-cta {
+    min-height: 90vh;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    background: #050505;
+}
+
+.cta-background {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    white-space: nowrap;
+
+    font-size: 35vw;
+    font-weight: 800;
+    letter-spacing: -30px;
+
+    color: #0c0c0c;
+
+    pointer-events: none;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+
+    padding: 0 8vw;
+}
+
+.cta-content h2 {
+    font-size: clamp(50px, 7vw, 110px);
+    line-height: .9;
+    letter-spacing: -6px;
+}
+
+.cta-content h2 span {
+    color: #555;
+}
+
+.cta-button {
+    margin-top: 55px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    padding: 70px 4vw 30px;
+
+    background: #030303;
+
+    border-top: 1px solid #181818;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.footer-logo {
+    font-size: clamp(80px, 15vw, 220px);
+    font-weight: 800;
+    line-height: .7;
+    letter-spacing: -15px;
+}
+
+.footer-digital {
+    color: #555;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    font-size: 10px;
+}
+
+.footer-contact span {
+    color: #444;
+    letter-spacing: 2px;
+}
+
+.footer-contact a {
+    transition: color .3s ease;
+}
+
+.footer-contact a:hover {
+    color: #888;
+}
+
+.footer-bottom {
+    margin-top: 90px;
+    padding-top: 20px;
+
+    border-top: 1px solid #181818;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #444;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.footer-bottom a {
+    color: #777;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .cursor,
+    .cursor-ring {
+        display: none;
+    }
+
+    .header {
+        padding: 20px 5vw;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .header-button {
+        padding: 10px 14px;
+    }
+
+    .hero {
+        min-height: 100svh;
+
+        align-items: flex-start;
+        padding-top: 150px;
+    }
+
+    .hero-content {
+        width: 90%;
+        margin-left: 5vw;
+    }
+
+    .hero-title {
+        font-size: clamp(48px, 13vw, 80px);
+        letter-spacing: -4px;
+    }
+
+    .hero-description {
+        max-width: 300px;
+        margin-top: 25px;
+    }
+
+    .device-scene {
+        width: 105vw;
+        right: -30vw;
+        top: 72%;
+
+        opacity: .7;
+
+        transform:
+            translateY(-50%)
+            perspective(1000px)
+            rotateY(-14deg);
+    }
+
+    .monitor-orb {
+        width: 100px;
+        height: 100px;
+    }
+
+    .manifesto,
+    .services,
+    .process {
+        padding: 120px 5vw;
+    }
+
+    .manifesto {
+        min-height: 80vh;
+    }
+
+    .manifesto h2 {
+        font-size: 48px;
+        letter-spacing: -3px;
+    }
+
+    .section-header {
+        display: block;
+        margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+        font-size: 60px;
+        letter-spacing: -4px;
+    }
+
+    .section-description {
+        margin-top: 35px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        min-height: 300px;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px 25px;
+    }
+
+    .process-item h3 {
+        margin-top: 30px;
+    }
+
+    .cta-content {
+        padding: 0 5vw;
+    }
+
+    .cta-content h2 {
+        font-size: 50px;
+        letter-spacing: -3px;
+    }
+
+    .cta-background {
+        font-size: 55vw;
+    }
+
+    .footer-top {
+        display: block;
+    }
+
+    .footer-logo {
+        font-size: 32vw;
+        letter-spacing: -7px;
+    }
+
+    .footer-contact {
+        margin-top: 70px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 60px;
+    }
+}
